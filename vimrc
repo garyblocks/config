@@ -177,6 +177,7 @@ autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 autocmd FileType php        :iabbrev <buffer> iff if () {}<left><left><left>
 
 """ colors
+set background=dark
 colo NeoSolarized	" set color scheme
 
 """ cursor only for iterm2 on mac
