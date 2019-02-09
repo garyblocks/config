@@ -2,13 +2,13 @@
 	name = gary wang
 	email = gary@equity.com
 [core]
-	editor = vim
+	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
 [sendemail]
 	smtpencryption = tls
 	smtpserver = smtp.gmail.com
-	smtpuser = gary@equity.com
+	smtpuser = pavan.sss1991@gmail.com
 	smtppass = password
 	smtpserverport = 587
 [web]
@@ -34,8 +34,9 @@
 	whitespace = red reverse
 [color "status"]
 	added = green bold
-	changed = yellow bold
+	changed = normal bold
 	untracked = red bold
+    updated = magenta bold
 [diff]
 	tool = vimdiff
 [difftool "sourcetree"]

@@ -16,7 +16,8 @@ export TAG_CMD_FMT_STRING="/usr/local/bin/vim {{.Filename}} +{{.LineNumber}}"
 
 export PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin
 export PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
-export PATH="$PATH:$(brew --prefix php70)/bin"
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 # added by Miniconda3 4.3.21 installer
 # export PATH="/Users/gary/miniconda3/bin:$PATH"

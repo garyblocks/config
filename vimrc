@@ -13,8 +13,8 @@ set hlsearch        " highlight search terms
 set incsearch       " show search matches as you type
 set bs=2            " fix back space
 set clipboard=unnamed		" copy to clipboard
-setlocal foldmethod=indent 	" set fold method to indent
-set foldlevel=20  " do not fold everything by default
+" setlocal foldmethod=indent 	" set fold method to indent
+set foldlevel=2    " do not fold everything by default
 
 """ plugins
 " begin the section for plugins and put them in plugged
@@ -67,6 +67,8 @@ Plug 'valloric/youcompleteme'
 Plug 'kien/ctrlp.vim'
 " colorized parentheses
 Plug 'luochen1990/rainbow'
+" simple fold
+Plug 'tmhedberg/simpylfold'
 " Initialize plugin system
 call plug#end()
 " do a :PlugInstall"
@@ -177,7 +179,6 @@ autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 autocmd FileType php        :iabbrev <buffer> iff if () {}<left><left><left>
 
 """ colors
-set background=dark
 colo NeoSolarized	" set color scheme
 
 """ cursor only for iterm2 on mac
@@ -213,6 +214,9 @@ let g:rainbow_conf = {
     \        'css': 0,
     \    }
     \}
+
+""" for simple fold
+let g:SimpylFold_docstring_preview = 1
 
 """ auto command
 " filetype specific comment out
