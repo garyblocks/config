@@ -19,11 +19,12 @@ export PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
 export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="${HOME}/.local/bin:$PATH"
 # added by Miniconda3 4.3.21 installer
 # export PATH="/Users/gary/miniconda3/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/gary/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -121,17 +122,16 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias rain='python /Users/wangjiayu/Desktop/github/matrixRain/matrix.py'
-alias dict='python /Users/wangjiayu/Desktop/github/dict/dict.py'
 alias h='split_tab'
 alias v='vsplit_tab'
 alias t='tab'
+alias space='du -hs * | sort -rh | head'
 
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source .oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # tag-ag
 export EDITOR='/usr/local/bin/vim'
@@ -149,9 +149,16 @@ git() {
     fi
 }
 
-# for conda
-conda() {
-    command /Users/gary/miniconda3/bin/conda "$@"
-}
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# for pyenv
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export FLASK_DEBUG=0
+export MAIL_SERVER=smtp.googlemail.com
+export MAIL_PORT=587
+export MAIL_USE_TLS=1
+export MAIL_USERNAME=gary@jane.ai
+export MAIL_PASSWORD=banana520!
