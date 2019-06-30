@@ -153,9 +153,9 @@ git() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # for pyenv
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="~/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 export FLASK_DEBUG=0
 export MAIL_SERVER=smtp.googlemail.com
