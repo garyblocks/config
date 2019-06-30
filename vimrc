@@ -50,10 +50,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
 " tabular
 Plug 'godlygeek/tabular'
-" angular
-Plug 'burnettk/vim-angular'
-" typescript
-Plug 'leafgarland/typescript-vim'
 " generate pairs
 Plug 'jiangmiao/auto-pairs'
 " emmet for html
@@ -81,8 +77,18 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php', 'phpcs']
+" let g:syntastic_debug = 3
+" php syntastic settings
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_phpcs_exec = '~/.vim/custom/bin/phpcs'
+let g:syntastic_php_phpcs_args = '--standard=psr2'
+let g:syntastic_php_phpmd_exec = '~/.vim/custom/bin/phpmd'
+let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_exec = 'python3'
+let g:syntastic_python_flake8_args = ['-m', 'flake8']
+" let g:syntastic_python_flake8_exec = 'python3 -m flake8'
+let g:syntastic_html_checkers = []
 
 """ Set up tabularize
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -107,10 +113,6 @@ let maplocalleader = "c"
 nnoremap ff za
 " use space to select a word
 nnoremap <space> viw
-" use - key to delete the current line, then paste it below current
-nnoremap - ddp
-" use _ key to delete the current line, then paste it above current
-nnoremap _ ddkp
 " use u to convert the text to uppercase
 vnoremap u U
 " use Ctrl+d to remove current line in insert mode
@@ -124,7 +126,7 @@ nnoremap <BS> diw
 " use 9 to navigate to the end of a line
 nnoremap 9 $
 " NERD Tree
-nnoremap tr :NERDTreeToggle<RETURN>
+nnoremap tree :NERDTreeToggle<RETURN>
 " easymotion
 map e <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
@@ -151,14 +153,12 @@ nnoremap W :w<cr>
 " for yapf
 nnoremap F :YAPF<cr>
 vnoremap F :'<,'>YAPF<cr>
-" add noqa to ignore flake8
-nnoremap nq $a<space><space>#<space>noqa<esc>
 
 """ operator-pending mappings
 " use p as in parentheses
 onoremap p i(
-" use b as to return
-onoremap b /return<cr>
+" use r as to return
+onoremap r /return<cr>
 " use in/il as in next/last parentheses
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! F)vi(<cr>
@@ -168,13 +168,10 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
 
 """ abbreviations
-iabbrev @g gary@equity.com
-iabbrev @h wangjiayu1917@hotmail.com
 iabbrev ff function
 iabbrev rr return
 
 " file type specific abbrevation
-autocmd FileType python     :iabbrev <buffer> iff if :<left>
 autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 autocmd FileType php        :iabbrev <buffer> iff if () {}<left><left><left>
 
@@ -191,6 +188,14 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 """ for ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+""" for pdb
+nnoremap <Leader>p :call InsertPdb()<CR>
+
+function! InsertPdb()
+  let trace = expand("import pdb; pdb.set_trace()")
+  execute "normal o".trace
+endfunction
 
 """ for rainbow
 let g:rainbow_active = 1

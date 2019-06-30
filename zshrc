@@ -20,8 +20,9 @@ export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="${HOME}/.local/bin:$PATH"
-# added by Miniconda3 4.3.21 installer
-# export PATH="/Users/gary/miniconda3/bin:$PATH"
+export PATH="/usr/local/mysql/bin:$PATH"
+export PATH=$HOME/.node_modules_global/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
