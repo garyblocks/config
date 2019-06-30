@@ -152,9 +152,4 @@ git() {
     fi
 }
 
-# for conda
-conda() {
-    command /Users/gary/miniconda3/bin/conda "$@"
-}
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
