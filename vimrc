@@ -225,6 +225,9 @@ let g:rainbow_conf = {
 """ for simple fold
 let g:SimpylFold_docstring_preview = 1
 
+""" for indentLine
+let g:indentLine_setConceal = 0
+
 """ auto command
 " filetype specific comment out
 augroup filetype_html
