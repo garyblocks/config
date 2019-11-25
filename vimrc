@@ -125,6 +125,11 @@ nnoremap <c-u> viwU
 nnoremap <BS> diw
 " use 9 to navigate to the end of a line
 nnoremap 9 $
+" use mapleader + v to split screen, and lh for move
+nnoremap <Leader>v <c-w>v
+nnoremap <Leader>l <c-w>l
+nnoremap <Leader>h <c-w>h
+
 " NERD Tree
 nnoremap tree :NERDTreeToggle<RETURN>
 " easymotion
