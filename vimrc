@@ -147,7 +147,7 @@ nnoremap zz ZZ
 " easiser way to force quit a file
 nnoremap qq :q!<cr>
 " surround the word in quotes
-nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+nnoremap " viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>l
 vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>l
