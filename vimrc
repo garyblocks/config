@@ -65,6 +65,10 @@ Plug 'kien/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 " simple fold
 Plug 'tmhedberg/simpylfold'
+" mutli line edit
+Plug 'terryma/vim-multiple-cursors'
+" file operation
+Plug 'tpope/vim-eunuch'
 " Initialize plugin system
 call plug#end()
 " do a :PlugInstall"
@@ -131,7 +135,7 @@ nnoremap <Leader>l <c-w>l
 nnoremap <Leader>h <c-w>h
 
 " NERD Tree
-nnoremap tree :NERDTreeToggle<RETURN>
+nnoremap <Leader>f :NERDTreeToggle<RETURN>
 " easymotion
 map e <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
