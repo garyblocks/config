@@ -8,7 +8,6 @@ set tabstop=4		" a tab is four spaces
 set shiftwidth=4    " an indent is a single tab
 set expandtab       " use space when insert with tab
 set smarttab        " auto indent
-retab on            " auto convert all tabs to space
 set showmatch		" show matching parenthesis
 set hlsearch        " highlight search terms
 set incsearch       " show search matches as you type
