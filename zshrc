@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # get auto-completion going
 autoload -U compinit
 compinit
@@ -12,7 +9,7 @@ fpath=(~/.zsh/completion /usr/local/share/zsh/site-functions $fpath)
 #source $HOME/.zsh/aliases
 #source $HOME/.zsh/functions
 
-export TAG_CMD_FMT_STRING="/usr/local/bin/vim {{.Filename}} +{{.LineNumber}}"
+export TAG_CMD_FMT_STRING="/usr/bin/vim {{.Filename}} +{{.LineNumber}}"
 
 export PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin
 export PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
@@ -22,7 +19,8 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="${HOME}/.local/bin:$PATH"
 export PATH="/usr/local/bin/mysql:$PATH"
 export PATH=$HOME/.node_modules_global/bin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/bin:$PATH
+export PATH="/usr/local/bin:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 # Path to your oh-my-zsh installation.
@@ -31,7 +29,8 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,9 +44,6 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -75,7 +71,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump osx zsh-autosuggestions)
+plugins=(
+    git
+    autojump
+    osx
+    zsh-autosuggestions
+)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -132,9 +133,6 @@ alias space='du -hs * | sort -rh | head'
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-# syntax highlighting
-source .oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # tag-ag
 export EDITOR='/usr/local/bin/vim'
 if (( $+commands[tag] )); then
@@ -158,9 +156,8 @@ git() {
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
-export FLASK_DEBUG=0
-export MAIL_SERVER=smtp.googlemail.com
-export MAIL_PORT=587
-export MAIL_USE_TLS=1
-export MAIL_USERNAME=gary@jane.ai
-export MAIL_PASSWORD=banana520!
+# syntax highlighting
+source .oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
