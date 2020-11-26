@@ -1,20 +1,74 @@
 # Apps
 * MacDown
+	* An app to view and edit markdown files
 * iTerm2
-    * change the profile -> colors to use color preset solarized dark, then also modify ANSI Colors -> Black Bright to a color ligher than Basic Colors -> Background, this is for auto-suggestion in zsh to show up.
+	* terminal
+	* change the profile -> colors to use color preset solarized dark, then also modify ANSI Colors -> Black Bright to a color ligher than Basic Colors -> Background, this is for auto-suggestion in zsh to show up.
+	* set the window size in profile -> window, set columns to 160, rows to 40.
 * Chrome
-    * install Chrome brower
-    * install oneTab in Chrome
+	* browser
+	* install Chrome brower
+	* install oneTab in Chrome
+* Rectangle
+	* easier window resize
+	* <https://github.com/rxhanson/Rectangle>
+* Clocker
+	* show time in different timezone
 
 # Softwares
 * Homebrew
-    * link: https://brew.sh/
-    * command: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+	* software to download other mac softwares
+	* <https://brew.sh/>
+	* download command: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 * Vim
-    * command: `brew install macvim`
+	* text editor
+	* command: `brew install macvim`
 * The Silver Search
-    * link: https://github.com/ggreer/the_silver_searcher
-    * command: `brew install the_silver_searcher`
+	* text search in terminal
+	* <https://github.com/ggreer/the_silver_searcher>
+	* install command: `brew install the_silver_searcher`
 * fzf
-    * link: https://github.com/junegunn/fzf
-    * command: `brew install fzf`
+	* <https://github.com/junegunn/fzf>
+	* install command: `brew install fzf`
+	* install settings: run `/usr/local/opt/fzf/install`, then `source .zshrc`
+* mysql
+	* relational database
+	* download and install from: https://dev.mysql.com/downloads/mysql/
+	* add the install path to .zshrc
+* pipenv
+	* python env management
+	* `brew install pipenv`
+* nerd-fonts
+	* terminal fonts
+	* install commands:
+		* `brew tap homebrew/cask-fonts`
+		* `brew cask install font-hack-nerd-font`
+* install colorls
+	* colorful and iconized ls command
+	* <https://github.com/athityakumar/colorls#installation>
+* pyenv
+    * <https://github.com/pyenv/pyenv>
+    * install `brew install pyenv`
+    * update shell
+        * `echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc`
+        * `echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc`
+        * `echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc`
+    * restart shell: `exec "$SHELL"`
+    * install python build dependencies: `brew install openssl readline sqlite3 xz zlib`
+    * install a python: `pyenv install 3.9.0`
+* install QL plugins
+    * QLColorCode
+        * Preview source code files with syntax highlighting
+        * `brew cask install qlcolorcode`
+    * QLMarkdown
+        * Preview Markdown files
+        * `brew cask install qlmarkdown`
+    * QuickLookJSON
+        * Preview JSON files
+        * `brew cask install quicklook-json`
+    * qlImageSize
+        * Display image size and resolution
+        * `brew cask install qlimagesize`
+    * QLVideo
+        * Preview video files
+        * `brew cask install qlvideo`

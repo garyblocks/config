@@ -35,8 +35,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 " surround vim
 Plug 'tpope/vim-surround'
-" dotted lines
-Plug 'Yggdroot/indentLine' | Plug 'nathanaelkane/vim-indent-guides'
+" dotted indent lines
+Plug 'Yggdroot/indentline'
 " php doc comment
 Plug 'mralejandro/vim-phpdoc'
 " enable fzf
@@ -149,7 +149,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " easiser way to save and quit a file
 nnoremap zz ZZ
 " easiser way to force quit a file
-nnoremap qq :q!<cr>
+nnoremap qq :qa!<cr>
 " surround the word in quotes
 nnoremap " viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
@@ -234,9 +234,6 @@ let g:rainbow_conf = {
 """ for simple fold
 let g:SimpylFold_docstring_preview = 1
 
-""" for indentLine
-let g:indentLine_setConceal = 0
-
 """ auto command
 " filetype specific comment out
 augroup filetype_html
@@ -247,4 +244,6 @@ augroup filetype_html
 	" autocmd BufWritePre,Bufread *.html :normal gg=G
 	" turn off line wrap for html
 	autocmd BufNewFile,BufRead *.html setlocal nowrap
+    " for html files, 2 spaces
+    autocmd Filetype html setlocal ts=2 sw=2 expandtab
 augroup END
