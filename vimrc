@@ -1,3 +1,4 @@
+""" Basic Settings
 set nocompatible    " do not compatible with vi
 set encoding=utf-8  " set encoding to utf-8
 set t_Co=256		" enable all colors
@@ -15,8 +16,76 @@ set bs=2            " fix back space
 set clipboard=unnamed		" copy to clipboard
 " setlocal foldmethod=indent 	" set fold method to indent
 set foldlevel=2    " do not fold everything by default
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
-""" plugins
+
+""" Leaders
+let mapleader = ";"
+let maplocalleader = "c"
+
+
+""" Mappings
+" use ff to fold and unfold
+nnoremap ff za
+" use space to select a word
+nnoremap <space> viw
+" use u to convert the text to uppercase
+vnoremap u U
+" use Ctrl+d to remove current line in insert mode
+inoremap <c-d> <esc>ddi
+" use Ctrl+u to convert the current word to uppercase in insert mode
+inoremap <c-u> <esc>viwUi
+" use Ctrl+u to convert the current word to uppercase in normal mode
+nnoremap <c-u> viwU
+" use backspace to remove current word in normal mode
+nnoremap <BS> diw
+" use 9 to navigate to the end of a line
+nnoremap 9 $
+" use mapleader + v to split screen, and lh for move
+nnoremap <Leader>v <c-w>v
+nnoremap <Leader>l <c-w>l
+nnoremap <Leader>h <c-w>h
+" edit my vimrc file in a split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>eh :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" easiser way to save and quit a file
+nnoremap zz ZZ
+" easiser way to force quit a file
+nnoremap qq :qa!<cr>
+" map jk to esc
+inoremap jk <esc>
+" map W to :w
+nnoremap W :w<cr>
+" surround the word in quotes
+nnoremap " viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>l
+vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>l
+" use p as in parentheses
+onoremap p i(
+" use r as to return
+onoremap r /return<cr>
+" use in/il as in next/last parentheses
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap in[ :<c-u>normal! f[vi[<cr>
+onoremap il[ :<c-u>normal! F]vi[<cr>
+onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
+
+
+""" abbreviations
+iabbrev ff function
+iabbrev rr return
+"" file type specific abbrevation
+autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+autocmd FileType php        :iabbrev <buffer> iff if () {}<left><left><left>
+
+
+
+""" Plugins
 " begin the section for plugins and put them in plugged
 call plug#begin('~/.vim/plugged')
 " for file system visualization
@@ -36,7 +105,7 @@ Plug 'scrooloose/syntastic'
 " surround vim
 Plug 'tpope/vim-surround'
 " dotted indent lines
-Plug 'Yggdroot/indentline'
+Plug 'Yggdroot/indentLine'
 " php doc comment
 Plug 'mralejandro/vim-phpdoc'
 " enable fzf
@@ -73,7 +142,9 @@ Plug 'tpope/vim-eunuch'
 call plug#end()
 " do a :PlugInstall"
 
-""" Plugin settings
+
+""" Plugin Settings
+"" syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -94,9 +165,8 @@ let g:syntastic_python_flake8_args = ['-m', 'flake8']
 " let g:syntastic_python_flake8_exec = 'python3 -m flake8'
 let g:syntastic_html_checkers = []
 
-""" Set up tabularize
+"" Set up tabularize
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -108,83 +178,23 @@ function! s:align()
   endif
 endfunction
 
-""" leaders
-let mapleader = ";"
-let maplocalleader = "c"
-
-""" mappings
-" use ff to fold and unfold
-nnoremap ff za
-" use space to select a word
-nnoremap <space> viw
-" use u to convert the text to uppercase
-vnoremap u U
-" use Ctrl+d to remove current line in insert mode
-inoremap <c-d> <esc>ddi
-" use Ctrl+u to convert the current word to uppercase in insert mode
-inoremap <c-u> <esc>viwUi
-" use Ctrl+u to convert the current word to uppercase in normal mode
-nnoremap <c-u> viwU
-" use backspace to remove current word in normal mode
-nnoremap <BS> diw
-" use 9 to navigate to the end of a line
-nnoremap 9 $
-" use mapleader + v to split screen, and lh for move
-nnoremap <Leader>v <c-w>v
-nnoremap <Leader>l <c-w>l
-nnoremap <Leader>h <c-w>h
-
-" NERD Tree
+"" NERD Tree
 nnoremap <Leader>f :NERDTreeToggle<RETURN>
-" easymotion
+
+"" easymotion
 map e <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
 nmap ef H:call EasyMotion#WB(0, 0)<CR>
-" phpdoc
+
+"" phpdoc
 nnoremap <Leader>d :call PhpDocPasteComment()<CR>
-" edit my vimrc file in a split
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>eh :split $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-" easiser way to save and quit a file
-nnoremap zz ZZ
-" easiser way to force quit a file
-nnoremap qq :qa!<cr>
-" surround the word in quotes
-nnoremap " viw<esc>a"<esc>bi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>l
-vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>l
-" map jk to esc
-inoremap jk <esc>
-" map W to :w
-nnoremap W :w<cr>
-" for yapf
+
+"" yapf
 nnoremap F :YAPF<cr>
 vnoremap F :'<,'>YAPF<cr>
 
-""" operator-pending mappings
-" use p as in parentheses
-onoremap p i(
-" use r as to return
-onoremap r /return<cr>
-" use in/il as in next/last parentheses
-onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap il( :<c-u>normal! F)vi(<cr>
-onoremap in[ :<c-u>normal! f[vi[<cr>
-onoremap il[ :<c-u>normal! F]vi[<cr>
-onoremap in{ :<c-u>normal! f{vi{<cr>
-onoremap il{ :<c-u>normal! F}vi{<cr>
 
-""" abbreviations
-iabbrev ff function
-iabbrev rr return
-
-" file type specific abbrevation
-autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
-autocmd FileType php        :iabbrev <buffer> iff if () {}<left><left><left>
-
-""" colors
+"" colors
 colorscheme NeoSolarized
 set termguicolors
 set background=dark
@@ -194,11 +204,11 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-""" for ctrlp
+"" ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-""" for pdb
+"" pdb
 nnoremap <Leader>p :call InsertPdb()<CR>
 
 function! InsertPdb()
@@ -206,7 +216,7 @@ function! InsertPdb()
   execute "normal o".trace
 endfunction
 
-""" for rainbow
+"" rainbow
 let g:rainbow_active = 1
 let g:rainbow_conf = {
     \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -231,8 +241,12 @@ let g:rainbow_conf = {
     \    }
     \}
 
-""" for simple fold
+"" Simple fold
 let g:SimpylFold_docstring_preview = 1
+
+"" vim airline
+let g:airline_solarized_bg='dark'
+
 
 """ auto command
 " filetype specific comment out
@@ -246,4 +260,6 @@ augroup filetype_html
 	autocmd BufNewFile,BufRead *.html setlocal nowrap
     " for html files, 2 spaces
     autocmd Filetype html setlocal ts=2 sw=2 expandtab
+    autocmd Filetype ts setlocal ts=2 sw=2 expandtab
+    autocmd Filetype js setlocal ts=2 sw=2 expandtab
 augroup END

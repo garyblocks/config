@@ -35,9 +35,14 @@
 	* relational database
 	* download and install from: https://dev.mysql.com/downloads/mysql/
 	* add the install path to .zshrc
-* pipenv
-	* python env management
-	* `brew install pipenv`
+* poetry
+    * <https://python-poetry.org>
+    * Install command:
+        `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -`
+    * set up auto completion with Oh-My-Zsh:
+        * `mkdir $ZSH_CUSTOM/plugins/poetry`
+        * `poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry`
+        * add `poetry` to `plugin` in `.zshrc`
 * nerd-fonts
 	* terminal fonts
 	* install commands:

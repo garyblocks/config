@@ -36,6 +36,7 @@ plugins=(
     zsh-autosuggestions
     docker docker-compose # docker auto-completion
     aws fzf # aws autocomplete
+    poetry  # poetry auto completion
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -119,7 +120,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # syntax highlighting
-source .oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -127,6 +128,9 @@ source .oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 # colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
 alias lc='colorls -lA --sd'
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
