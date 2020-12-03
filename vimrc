@@ -18,6 +18,21 @@ set clipboard=unnamed		" copy to clipboard
 set foldlevel=2    " do not fold everything by default
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
+" set Vim-specific sequences for RGB colors
+set termguicolors
+set background=dark
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" cursor only for iterm2 on mac, adjust for tmux
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+endif
 
 
 """ Leaders
@@ -193,16 +208,8 @@ nnoremap <Leader>d :call PhpDocPasteComment()<CR>
 nnoremap F :YAPF<cr>
 vnoremap F :'<,'>YAPF<cr>
 
-
-"" colors
+"" neosolarized colors
 colorscheme NeoSolarized
-set termguicolors
-set background=dark
-
-"" cursor only for iterm2 on mac
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "" ctrlp
 let g:ctrlp_map = '<c-p>'

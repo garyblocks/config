@@ -37,6 +37,11 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
     * `cd ~/.vim/plugged/youcompleteme`
     * `python3 install.py --all`
 
-## flow
+## tmux
+* tmux: .tumx.conf
+* install tpm:
+    * command: `git clone https://github.com/tmux-plugins/tmp ~/.tmux/plugins/tpm`
+
+## git
 * git: gitconfig
 * softlink git config to home directory: `ln -s gitconfig ~/.gitconfig`

@@ -77,3 +77,5 @@
     * QLVideo
         * Preview video files
         * `brew cask install qlvideo`
+* tmux
+    * `brew install tmux`
