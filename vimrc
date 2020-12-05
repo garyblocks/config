@@ -167,7 +167,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" let g:syntastic_debug = 3
+let g:syntastic_scala_checkers = []  "turn off scala syntax checker
+let g:syntastic_debug = 3
 " php syntastic settings
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_exec = '~/.vim/custom/bin/phpcs'
