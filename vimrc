@@ -16,13 +16,22 @@ set bs=2            " fix back space
 set clipboard=unnamed		" copy to clipboard
 " setlocal foldmethod=indent 	" set fold method to indent
 set foldlevel=2    " do not fold everything by default
+
+"toggle paste mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+"highlight cursorline
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
+
 " set Vim-specific sequences for RGB colors
 set termguicolors
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " cursor only for iterm2 on mac, adjust for tmux
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -167,9 +176,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_scala_checkers = []  "turn off scala syntax checker
-let g:syntastic_debug = 3
-" php syntastic settings
+" let g:syntastic_debug = 3
+" " php syntastic settings
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_exec = '~/.vim/custom/bin/phpcs'
 let g:syntastic_php_phpcs_args = '--standard=psr2'
@@ -178,8 +186,9 @@ let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,u
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_exec = 'python3'
 let g:syntastic_python_flake8_args = ['-m', 'flake8']
-" let g:syntastic_python_flake8_exec = 'python3 -m flake8'
-let g:syntastic_html_checkers = []
+let g:syntastic_python_flake8_exec = 'python3 -m flake8'
+let g:syntastic_html_checkers = []  "turn off html syntax checker
+let g:syntastic_scala_checkers = []  "turn off scala syntax checker
 
 "" Set up tabularize
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
