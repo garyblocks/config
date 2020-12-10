@@ -89,6 +89,9 @@ alias v='vsplit_tab'
 alias t='tab'
 alias space='du -hs * | sort -rh | head'
 
+# show directory as a tree
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
