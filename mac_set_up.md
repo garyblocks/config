@@ -14,6 +14,8 @@
 	* <https://github.com/rxhanson/Rectangle>
 * Clocker
 	* show time in different timezone
+* Caffeine
+    * <https://www.macupdate.com/app/mac/24120/caffeine>
 
 # Softwares
 * Homebrew
@@ -61,21 +63,5 @@
     * restart shell: `exec "$SHELL"`
     * install python build dependencies: `brew install openssl readline sqlite3 xz zlib`
     * install a python: `pyenv install 3.9.0`
-* install QL plugins
-    * QLColorCode
-        * Preview source code files with syntax highlighting
-        * `brew cask install qlcolorcode`
-    * QLMarkdown
-        * Preview Markdown files
-        * `brew cask install qlmarkdown`
-    * QuickLookJSON
-        * Preview JSON files
-        * `brew cask install quicklook-json`
-    * qlImageSize
-        * Display image size and resolution
-        * `brew cask install qlimagesize`
-    * QLVideo
-        * Preview video files
-        * `brew cask install qlvideo`
-* tmux
+* Tmux
     * `brew install tmux`

@@ -40,7 +40,8 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
 ## tmux
 * tmux: .tumx.conf
 * install tpm:
-    * command: `git clone https://github.com/tmux-plugins/tmp ~/.tmux/plugins/tpm`
+    * command: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+* softlink tmux config to home directory: `ln -s tmux.conf ~/.tmux.conf`
 
 ## git
 * git: gitconfig
