@@ -162,6 +162,8 @@ Plug 'tmhedberg/simpylfold'
 Plug 'terryma/vim-multiple-cursors'
 " file operation
 Plug 'tpope/vim-eunuch'
+" nerd tree git integration
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Initialize plugin system
 call plug#end()
 " do a :PlugInstall"
@@ -204,7 +206,11 @@ function! s:align()
 endfunction
 
 "" NERD Tree
-nnoremap <Leader>f :NERDTreeToggle<RETURN>
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
 
 "" easymotion
 map e <Plug>(easymotion-prefix)
