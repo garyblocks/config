@@ -29,6 +29,10 @@
 	* text search in terminal
 	* <https://github.com/ggreer/the_silver_searcher>
 	* install command: `brew install the_silver_searcher`
+* Tag ag
+    * add tag to ag
+    * <https://github.com/aykamko/tag>
+    * command: `brew tap aykamko/tag-ag` then `brew install tag-ag`
 * fzf
 	* <https://github.com/junegunn/fzf>
 	* install command: `brew install fzf`

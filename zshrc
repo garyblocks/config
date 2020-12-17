@@ -96,10 +96,11 @@ alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # tag-ag
-export EDITOR='/usr/local/bin/vim'
-if (( $+commands[tag] )); then
-  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
-  alias ag=tag
+export TAG_CMD_FMT_STRING='/usr/local/bin/vim -c "call cursor({{.LineNumber}}, {{.ColumnNumber}})" "{{.Filename}}"'
+if (( $+commands[tag]  )); then
+    export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
+    tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null  }
+    alias ag=tag  # replace with rg for ripgrep
 fi
 
 # git add modified file only
