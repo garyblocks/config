@@ -114,7 +114,7 @@ autocmd FileType php        :iabbrev <buffer> iff if () {}<left><left><left>
 call plug#begin('~/.vim/plugged')
 " for file system visualization
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin' , { 'on':  'NERDTreeToggle' }
 " color scheme NeoSolarized
 Plug 'iCyMind/NeoSolarized'
 " vim-airline

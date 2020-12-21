@@ -5,6 +5,15 @@
 	* terminal
 	* change the profile -> colors to use color preset solarized dark, then also modify ANSI Colors -> Black Bright to a color ligher than Basic Colors -> Background, this is for auto-suggestion in zsh to show up.
 	* set the window size in profile -> window, set columns to 160, rows to 40.
+    * install consolas
+        * `brew install cabextract`
+        * `cd ~/Downloads`
+        * `mkdir consolas`
+        * `curl -LO https://sourceforge.net/projects/mscorefonts2/files/cabs/PowerPointViewer.exe`
+        * `cabextract PowerPointViewer.exe`
+        * `cabextract ppviewer.cab`
+        * `open CONSOLA*.TTF` and click install
+        * remove consolas folder
 * Chrome
 	* browser
 	* install Chrome brower
