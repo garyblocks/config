@@ -270,6 +270,20 @@ let g:SimpylFold_docstring_preview = 1
 "" vim airline
 let g:airline_solarized_bg='dark'
 
+"" open nerd tree when no file argument
+function! StartUp()
+    if !argc() && !exists("s:std_in")
+        NERDTree
+    end
+    if argc() && isdirectory(argv()[0]) && !exists("s:std_in")
+        exe 'NERDTree' argv()[0]
+        wincmd p
+        ene
+    end
+endfunction
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * call StartUp()
 
 """ auto command
 " filetype specific comment out
