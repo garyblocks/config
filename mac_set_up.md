@@ -78,3 +78,4 @@
     * install a python: `pyenv install 3.9.0`
 * Tmux
     * `brew install tmux`
+    * install tmuxp `pip3 install tmuxp`
