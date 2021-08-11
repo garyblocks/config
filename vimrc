@@ -297,6 +297,7 @@ augroup filetype_html
 	autocmd BufNewFile,BufRead *.html setlocal nowrap
     " for html files, 2 spaces
     autocmd Filetype html setlocal ts=2 sw=2 expandtab
-    autocmd Filetype ts setlocal ts=2 sw=2 expandtab
-    autocmd Filetype js setlocal ts=2 sw=2 expandtab
+    autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+    autocmd Filetype typescript setlocal ts=2 sw=2 expandtab
+    autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 augroup END

@@ -26,7 +26,7 @@
 * Caffeine
     * <https://www.macupdate.com/app/mac/24120/caffeine>
 
-# Softwares
+# Commandline Softwares
 * Homebrew
 	* software to download other mac softwares
 	* <https://brew.sh/>
@@ -79,3 +79,5 @@
 * Tmux
     * `brew install tmux`
     * install tmuxp `pip3 install tmuxp`
+* watch
+    * `brew install watch`
