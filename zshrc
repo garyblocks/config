@@ -32,7 +32,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     autojump
-    osx
+    macos
     zsh-autosuggestions
     docker docker-compose # docker auto-completion
     aws fzf # aws autocomplete
@@ -68,7 +68,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Gary Aliases
 alias cls='clear'
-alias vim='/usr/local/bin/vim'
+alias vim='mvim -v'
 alias vi='vim'
 alias e='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
@@ -164,3 +164,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
